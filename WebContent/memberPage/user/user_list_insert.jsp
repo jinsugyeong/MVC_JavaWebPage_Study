@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/main.css"/>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/memberPage/css/main.css"/>
 <style>
 table {
   font-family: arial, sans-serif;
@@ -34,8 +34,8 @@ tr:nth-child(even) {
          <div id="header"> 
        
              상단 메뉴<br/><br/>    
-             <a href="<%=request.getContextPath() %>/user/user_insert_form.jsp">01 회원가입</a>
-             <a href="<%=request.getContextPath() %>/user/user_list.jsp">02 전체 회원 조회</a>
+             <a href="<%=request.getContextPath() %>/memberPage/user/user_insert_form.jsp">01 회원가입</a>
+             <a href="<%=request.getContextPath() %>/memberPage/user/user_list.jsp">02 전체 회원 조회</a>
              <a href="#">03 상품 등록</a>
              <a href="#">04 상품 검색</a>
             
@@ -53,7 +53,20 @@ tr:nth-child(even) {
        <!-- Begin Right Column -->
        <div id="rightcolumn">
             <h2>02 전체 회원(가입 후 2명)</h2>
-
+<%
+	request.setCharacterEncoding("euc-kr");
+	String uid = request.getParameter("uid");
+	String upw = request.getParameter("upw");
+	String uname = request.getParameter("uname");
+	String uphone = request.getParameter("uphone");
+	String uemail = request.getParameter("uemail");
+	
+	System.out.println(uid + "<-- uid  user_list_insert.jsp");
+	System.out.println(upw + "<-- upw  user_list_insert.jsp");
+	System.out.println(uname + "<-- uname  user_list_insert.jsp");
+	System.out.println(uphone + "<-- uphone  user_list_insert.jsp");
+	System.out.println(uemail + "<-- uemail  user_list_insert.jsp");
+%>
             <table>
               <tr>
               	<th>no</th>
@@ -77,13 +90,13 @@ tr:nth-child(even) {
               </tr>
               <tr>
              	 <td>2</td>
-                <td>id002</td>
-                <td>pw002</td>
-                <td>이길동</td>
-                <td>010-0000-0002</td>
-                <td>email02@email.com</td>
-               <td><a href="<%=request.getContextPath() %>/user/user_update_form.jsp">수정버튼</a></td>
-                <td><a href="<%=request.getContextPath() %>/user/user_list_delete.jsp">삭제버튼</a></td>
+                <td><%=uid %></td>
+                <td><%=upw %></td>
+                <td><%=uname %></td>
+                <td><%=uphone %></td>
+                <td><%=uemail %></td>
+               <td><a href="<%=request.getContextPath() %>/memberPage/user/user_update_form.jsp?uid=<%=uid %>&upw=<%=upw %>&uname=<%=uname %>&uphone=<%=uphone %>&uemail=<%=uemail %>">수정버튼</a></td>
+                <td><a href="<%=request.getContextPath() %>/memberPage/user/user_list_delete.jsp">삭제버튼</a></td>
               </tr>
             </table>    
        

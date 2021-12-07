@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/main.css"/>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/memberPage/css/main.css"/>
 <style>
 table {
   font-family: arial, sans-serif;
@@ -34,8 +34,8 @@ tr:nth-child(even) {
          <div id="header"> 
        
              상단 메뉴<br/><br/>    
-             <a href="<%=request.getContextPath() %>/user/user_insert_form.jsp">01 회원가입</a>
-             <a href="<%=request.getContextPath() %>/user/user_list.jsp">02 전체 회원 조회</a>
+             <a href="<%=request.getContextPath() %>/memberPage/user/user_insert_form.jsp">01 회원가입</a>
+             <a href="<%=request.getContextPath() %>/memberPage/user/user_list.jsp">02 전체 회원 조회</a>
              <a href="#">03 상품 등록</a>
              <a href="#">04 상품 검색</a>
             

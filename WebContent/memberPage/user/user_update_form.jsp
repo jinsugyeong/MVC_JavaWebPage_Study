@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/main.css" />
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/memberPage/css/main.css" />
 <!-- 
 절대경로 사용시 
 ip주소,도메인, port 번호, 프로토콜 등이 바뀌면 경로를 모두 수정해야한다.
@@ -21,8 +21,8 @@ ip주소,도메인, port 번호, 프로토콜 등이 바뀌면 경로를 모두 수정해야한다.
 		<div id="header">
 
 			상단 메뉴 <br /> <br /> 
-			<a href="<%=request.getContextPath()%>/user/user_insert_form.jsp">01회원가입</a>
-			<a href="<%=request.getContextPath()%>/user/user_list.jsp">02전체회원조회</a>
+			<a href="<%=request.getContextPath()%>/memberPage/user/user_insert_form.jsp">01회원가입</a>
+			<a href="<%=request.getContextPath()%>/memberPage/user/user_list.jsp">02전체회원조회</a>
 			<a href="#">03상품등록</a>
 			<a href="#">04상품검색</a>
 
@@ -34,16 +34,29 @@ ip주소,도메인, port 번호, 프로토콜 등이 바뀌면 경로를 모두 수정해야한다.
 			왼쪽 메뉴
 		</div>
 		<!-- End Left Column -->
-
+<%
+	request.setCharacterEncoding("euc-kr");
+	String uid = request.getParameter("uid");
+	String upw = request.getParameter("upw");
+	String uname = request.getParameter("uname");
+	String uphone = request.getParameter("uphone");
+	String uemail = request.getParameter("uemail");
+	
+	System.out.println(uid + "<-- uid  user_update_form.jsp");
+	System.out.println(upw + "<-- upw  user_update_form.jsp");
+	System.out.println(uname + "<-- uname  user_update_form.jsp");
+	System.out.println(uphone + "<-- uphone  user_update_form.jsp");
+	System.out.println(uemail + "<-- uemail  user_update_form.jsp");
+%>
 		<!-- Begin Right Column -->
 		<div id="rightcolumn">
 			회원수정 화면<br/>
-			<form action="<%=request.getContextPath()%>/user/user_list_update.jsp" method="post">
-				아이디: <input type="text" name="uid" value="id002" readonly>	<br/>
-				비번: <input type="password" name="upw" value="pw002">	<br/>
-				이름: <input type="text" name="uname" value="이길동">	<br/>
-				전화번호: <input type="text" name="uphone" value="010-0000-0002">	<br/>
-				이메일: <input type="text" name="uemail" value="email02@email.com">	<br/>
+			<form action="<%=request.getContextPath()%>/memberPage/user/user_list_update.jsp" method="post">
+				아이디: <input type="text" name="uid" value="<%=uid %>" readonly>	<br/>
+				비번: <input type="password" name="upw" value="<%=upw %>">	<br/>
+				이름: <input type="text" name="uname" value="<%=uname %>">	<br/>
+				전화번호: <input type="text" name="uphone" value="<%=uphone %>">	<br/>
+				이메일: <input type="text" name="uemail" value="<%=uemail %>">	<br/>
 				<input type="submit" name="회원수정버튼" value="회원수정버튼">	<br/>
 			</form>
 

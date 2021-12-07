@@ -34,8 +34,8 @@ tr:nth-child(even) {
          <div id="header"> 
        
              상단 메뉴<br/><br/>    
-             <a href="<%=request.getContextPath() %>/user/user_insert_form.jsp">01 회원가입</a>
-             <a href="<%=request.getContextPath() %>/user/user_list.jsp">02 전체 회원 조회</a>
+             <a href="<%=request.getContextPath() %>/memberPage/user/user_insert_form.jsp">01 회원가입</a>
+             <a href="<%=request.getContextPath() %>/memberPage/user/user_list.jsp">02 전체 회원 조회</a>
              <a href="#">03 상품 등록</a>
              <a href="#">04 상품 검색</a>
             

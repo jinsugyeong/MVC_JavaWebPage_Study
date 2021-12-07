@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/main.css" />
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/memberPage/css/main.css" />
 <!-- 
 절대경로 사용시 
 ip주소,도메인, port 번호, 프로토콜 등이 바뀌면 경로를 모두 수정해야한다.
@@ -21,8 +21,8 @@ ip주소,도메인, port 번호, 프로토콜 등이 바뀌면 경로를 모두 수정해야한다.
 		<div id="header">
 
 			상단 메뉴 <br /> <br /> 
-			<a href="<%=request.getContextPath()%>/user/user_insert_form.jsp">01회원가입</a>
-			<a href="<%=request.getContextPath()%>/user/user_list.jsp">02전체회원조회</a>
+			<a href="<%=request.getContextPath()%>/memberPage/user/user_insert_form.jsp">01회원가입</a>
+			<a href="<%=request.getContextPath()%>/memberPage/user/user_list.jsp">02전체회원조회</a>
 			<a href="#">03상품등록</a>
 			<a href="#">04상품검색</a>
 
