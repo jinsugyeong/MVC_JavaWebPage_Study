@@ -31,7 +31,14 @@ body {
 	border: 1px solid #ccc;
 	height: 100px;
 	margin: 10px 0px 5px 0px;
-	background: #BD9C8C;
+	background: #f5f1ef;
+}
+
+#header form input[type=text] {
+	width: 100px;
+}
+#header form input[type=password] {
+	width: 100px;
 }
 
 #leftcolumn {
