@@ -7,13 +7,6 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/main.css" />
 </head>
-
 <body>
-<%@ include file="/module/top.jsp" %>
-<%@ include file="/module/left.jsp" %>
-
-			index.jsp 메인 화면<br /> 
-
-<%@ include file="/module/hadan.jsp" %>
 </body>
 </html>
