@@ -33,6 +33,8 @@ tr:nth-child(even) {
     <th>이름</th>
     <th>전화번호</th>
     <th>이메일</th>
+    <th>수정</th>
+    <th>삭제</th>
   </tr>
   <tr>
     <td>01</td>
@@ -41,6 +43,8 @@ tr:nth-child(even) {
     <td>일길동</td>
     <td>010-0000-0001</td>
     <td>email01@email.com</td>
+    <td><form action=""><button type="submit">수정</button></form></td>
+    <td><form action=""><button type="submit">삭제</button></form></td>
   </tr>
 
 </table>

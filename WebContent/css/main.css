@@ -8,9 +8,22 @@
 	  back to http://www.code-sucks.com
 	  
 */
+
 * {
 	padding: 0;
 	margin: 0;
+	list-style: none;
+	color: #333;	
+}
+
+a{
+	text-decoration: none;
+	display: block;
+	color: #333;
+}
+
+a:hover {
+	font-weight: bold;
 }
 
 body {
@@ -21,27 +34,95 @@ body {
 #wrapper {
 	margin: 0 auto;
 	width: 922px;
+	position: relative;
 }
 
-#header {
+#header {	
+	width: 100%;
 	color: #333;
-	width: 900px;
-	float: left;
-	padding: 10px;
-	border: 1px solid #ccc;
 	height: 100px;
-	margin: 10px 0px 5px 0px;
+	margin-bottom: 5px;
 	background: #f5f1ef;
+	border-bottom: 1px solid #ccc;
+	box-sizing: border-box;
+}
+
+#header h1 {
+	float: left;
+	margin-top: 27px;
+	font-size: 50px;
+	padding-left: 30px;
+	font-style: oblique;
+	text-decoration: overline;
+	position: relative;
+}
+.top-nav {
+	width: 700px;
+	float: right;
+	margin-top: 40px;	
+}
+
+.top-nav ul {
+	padding-top:20px;
+	height: 50px;	
+	box-sizing: border-box;
+	width: 700px;
+}
+
+.top-nav li {
+	float: left;
+	text-align: center;
+	width: 25%;
+}
+
+.top-nav a {
+	font-size:18px;
 }
 
 #header form input[type=text] {
 	width: 100px;
+	background: none;
+	border: none;
+	border-bottom: 1px solid #333;
 }
 #header form input[type=password] {
 	width: 100px;
+	background: none;
+	border: none;
+	border-bottom: 1px solid #333;
+}
+
+#header form input[type=submit] {
+	border: none;
+	background: none;
+	cursor: pointer;
+	font-style: italic;
+}
+
+.login {
+	position: absolute;
+	top: 0;
+	right: 10px;
+	margin-top: 10px;
+	width: 310px;
+}
+
+.login p {
+	display: block;
+	float: left;
+	padding-left: 70px;
+}
+.btn-logout {
+	border: none;
+	background: none;
+	cursor: pointer;
+	font-style: italic;
+	float: right;
+	display: block;
 }
 
 #leftcolumn {
+	
 	color: #333;
 	border: 1px solid #ccc;
 	background: #E7DBD5;
@@ -52,7 +133,7 @@ body {
 	float: left;
 }
 
-#rightcolumn {
+#Contents {
 	float: right;
 	color: #333;
 	border: 1px solid #ccc;
@@ -64,6 +145,31 @@ body {
 	display: inline;
 }
 
+#Contents form {
+	width: 230px;
+	margin-left: 10px;
+}
+
+#Contents form label {
+	display: block;
+	padding-bottom: 20px;
+	
+}
+
+#Contents form >label input,button {
+	float: right;
+}
+
+#Contents th{
+	text-align: center;
+}
+
+.btn {
+	width: 100%;
+}
+
+
+
 #footer {
 	width: 900px;
 	clear: both;
@@ -72,4 +178,13 @@ body {
 	background: #BD9C8C;
 	margin: 0px 0px 10px 0px;
 	padding: 10px;
+}
+
+.super{
+	height: 450px;
+	padding: 15px;
+	padding-top: 100px;
+	background:#E7DBD5;
+	text-align: center;
+	box-sizing: border-box;
 }
