@@ -23,6 +23,11 @@
 					<input type="submit" value="login">
 				</form>
 			</div>
+			<nav class ="top-nav">
+				<ul>
+					<li><a href="<%=request.getContextPath() %>/user/user_insert_form.jsp">01회원등록</a></li>
+				</ul>
+			</nav>	
 <!-- 로그인 전 화면 끝 -->
 
 

@@ -160,6 +160,11 @@ body {
 	float: right;
 }
 
+#Contents .radio {
+	display: inline-block;
+	
+}
+
 #Contents th{
 	text-align: center;
 }
