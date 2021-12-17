@@ -42,7 +42,7 @@ body {
 	color: #333;
 	height: 100px;
 	margin-bottom: 5px;
-	background: #f5f1ef;
+	background-color: #f5f1ef;
 	border-bottom: 1px solid #ccc;
 	box-sizing: border-box;
 }
@@ -54,12 +54,13 @@ body {
 	padding-left: 30px;
 	font-style: oblique;
 	text-decoration: overline;
-	position: relative;
+	
 }
 .top-nav {
 	width: 700px;
 	float: right;
 	margin-top: 40px;	
+	position: relative;
 }
 
 .top-nav ul {
@@ -146,24 +147,29 @@ body {
 }
 
 #Contents form {
-	width: 230px;
+	width: 260px;
 	margin-left: 10px;
 }
 
 #Contents form label {
 	display: block;
 	padding-bottom: 20px;
-	
+	clear: both;
+	padding-left: 10px;
 }
 
-#Contents form >label input,button {
+#Contents form >label input[type="text"],input[type="password"],button {
 	float: right;
 }
 
-#Contents .radio {
-	display: inline-block;
-	
+label input[type="radio"]:first-child{
+	margin-left: 35px;
 }
+
+label input[type="radio"]:last-child{
+	margin-left: 10px;
+}
+
 
 #Contents th{
 	text-align: center;
