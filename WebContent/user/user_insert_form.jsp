@@ -16,11 +16,11 @@
 			<form action="<%=request.getContextPath() %>/user/user_insert_action.jsp" method="post">
 				<label><span>아이디 : </span><input type="text" name="uid"></label>
 				<label><span>비밀번호 : </span><input type="password" name="upw"></label>
-				<label><span>이름 : </span><input type="text" name="uname"></label>
 				<label class="radio">권한 :
 					<input type="radio" name="ulevel" value="구매자"> 구매자
 					<input type="radio" name="ulevel" value="판매자"> 판매자
 				 </label>				
+				<label><span>이름 : </span><input type="text" name="uname"></label>
 				<label><span>전화번호 : </span><input type="text" name="uphone"></label>
 				<label><span>이메일 : </span><input type="text" name="uemail"></label>
 				<button type="submit">회원가입</button>
