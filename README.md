@@ -6,4 +6,5 @@
   <li>jdbc-mysql로 연결해보기 (211213)</li>
   <li>db연결 다시 하기(211217)</li>
   <li>insert/list/update 처리 (211218)</li>
+  <li>delete처리 (211218)</li>
 </ul>

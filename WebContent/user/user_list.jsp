@@ -91,7 +91,7 @@ tr:nth-child(even) {
 						<td><%=rs.getString("u_phone")%></td>
 						<td><%=rs.getString("u_email")%></td>
 						<td><a href="<%=request.getContextPath()%>/user/user_update_form.jsp?send_id=<%=rs.getString("u_id")%>">수정버튼</a></td>
-						<td>삭제버튼</td>
+						<td><a href="<%=request.getContextPath()%>/user/user_delete_action.jsp?send_id=<%=rs.getString("u_id")%>">삭제버튼</a></td>
 					</tr>
 										
 					<%

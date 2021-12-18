@@ -1,59 +1,50 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
-<link href="<%=request.getContextPath()%>/css/main.css" rel="stylesheet" type="text/css">
-<style type="text/css">
-table {
-	font-family: arial, sans-serif;
-	border-collapse: collapse;
-	width: 100%;
-}
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.PreparedStatement" %>
+<%@ page import="java.sql.SQLException" %>
+<%
+	request.setCharacterEncoding("utf-8");
+	String send_id = request.getParameter("send_id");
+	
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	
+	//1단계: java.sql 패키지 import해주고 드라이버 로딩
+	Class.forName("com.mysql.jdbc.Driver");
 
-td, th {
-	border: 1px solid #dddddd;
-	text-align: left;
-	padding: 8px;
-}
-
-tr:nth-child(even) {
-	background-color: #dddddd;
-}
-</style>
-</head>
-<body>
-<%@ include file="/module/top.jsp" %>
-<%@ include file="/module/left.jsp" %>
-
-			<h2>04 전체 회원 (삭제 후 1명)</h2>
-			<br>
-			<table>
-				<tr>
-					<th>no</th>
-					<th>아이디</th>
-					<th>비번</th>
-					<th>이름</th>
-					<th>전화번호</th>
-					<th>이메일</th>
-					<th>수정</th>
-    				<th>삭제</th>
-				</tr>
-				<tr>
-					<td>01</td>
-					<td>id001</td>
-					<td>pw001</td>
-					<td>일길동</td>
-					<td>010-0000-0001</td>
-					<td>email01@email.com</td>
-					<td><a href="#"><button type="submit" class="btn">수정</button></a></td>
-    				<td><a href="#"><button type="submit" class="btn">삭제</button></a></td>
-				</tr>
-
-			</table>
-
-<%@ include file="/module/hadan.jsp" %>
-</body>
-</html>
+	String jdbcDriver="jdbc:mysql://localhost:3306/db02jsg?" +
+			"useUnicode=true&characterEncoding=UTF8";
+	String dbUser = "dbid02jsg";
+	String dbPass = "dbpw02jsg";
+	
+	try{
+	//2단계: Connection 객체로 DB연결
+	conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+	System.out.println(conn);
+	
+	//3단계: 쿼리문
+	pstmt = conn.prepareStatement("DELETE FROM tb_user WHERE u_id=?");
+	pstmt.setString(1, send_id);
+	
+	System.out.print(pstmt + " <-- 완성된 delete문");
+	
+	
+	//4단계: 쿼리실행
+	pstmt.executeUpdate();
+	
+	//5단계: 생략
+	
+	}catch(SQLException ex){
+		out.println(ex.getMessage());
+		ex.printStackTrace();
+	}finally{
+		//06단계 :statement 또는 prepareStatement객체 종료(close())
+		if (pstmt != null) try { pstmt.close(); } catch(SQLException ex) {}
+		//07단계 :Connection 객체 종료(close())
+		if (conn != null) try { conn.close(); } catch(SQLException ex) {}
+	}
+	
+%>
