@@ -7,4 +7,5 @@
   <li>db연결 다시 하기(211217)</li>
   <li>insert/list/update 처리 (211218)</li>
   <li>delete처리 (211218)</li>
+  <li>search처리 (211219)</li>
 </ul>
