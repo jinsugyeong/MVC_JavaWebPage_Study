@@ -13,7 +13,7 @@
 
 			<h2>회원등록화면</h2>
 			<br><br>
-			<form action="<%=request.getContextPath() %>/user/user_insert_action.jsp" method="post">
+			<form action="<%=request.getContextPath() %>/user/user_insert_action.jsp" method="post" id="userform">
 				<label><span>아이디 : </span><input type="text" name="uid"></label>
 				<label><span>비밀번호 : </span><input type="password" name="upw"></label>
 				<label class="radio">권한 :

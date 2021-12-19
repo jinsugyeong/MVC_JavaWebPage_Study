@@ -7,6 +7,15 @@
 <%@ page import="java.sql.SQLException"%>
 <%@ page import="java.sql.ResultSet"%>
 
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
+<link href="<%=request.getContextPath() %>/css/main.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<%@ include file="/module/top.jsp" %>
+<%@ include file="/module/left.jsp" %>
 <%@ include file="/user/user_search_form.jsp" %>
 <style type="text/css">
 table {
@@ -131,4 +140,7 @@ try{
 
 %>
 </table>
+<%@ include file="/module/hadan.jsp" %>
+</body>
+</html>
 

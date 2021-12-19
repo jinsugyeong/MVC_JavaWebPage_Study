@@ -42,7 +42,8 @@ body {
 	color: #333;
 	height: 100px;
 	margin-bottom: 5px;
-	background-color: #f5f1ef;
+	background: #f5f1ef;
+	background-size: cover;
 	border-bottom: 1px solid #ccc;
 	box-sizing: border-box;
 }
@@ -59,7 +60,7 @@ body {
 .top-nav {
 	width: 700px;
 	float: right;
-	margin-top: 40px;	
+	margin-top: 40px;
 	position: relative;
 }
 
@@ -68,6 +69,7 @@ body {
 	height: 50px;	
 	box-sizing: border-box;
 	width: 700px;
+	
 }
 
 .top-nav li {
@@ -100,17 +102,18 @@ body {
 	font-style: italic;
 }
 
-.login {
+div.login {
 	position: absolute;
+	margin-top: 10px;
 	top: 0;
 	right: 10px;
-	margin-top: 10px;
 	width: 310px;
 }
 
 .login p {
 	display: block;
 	float: left;
+	right:0;
 	padding-left: 70px;
 }
 .btn-logout {
@@ -144,29 +147,36 @@ body {
 	height: 350px;
 	width: 678px;
 	display: inline;
+	overflow-y: auto;
 }
 
-#Contents form {
+#userform {
 	width: 260px;
 	margin-left: 10px;
 }
 
-#Contents form label {
+#userform label {
 	display: block;
 	padding-bottom: 20px;
 	clear: both;
 	padding-left: 10px;
 }
 
-#Contents form >label input[type="text"],input[type="password"],button {
+#userform label input[type="text"] {
+	float: right;
+}
+#userform input[type="password"] {
+	float: right;
+}
+#userform button {
 	float: right;
 }
 
-label input[type="radio"]:first-child{
+#userform label input[type="radio"]:first-child{
 	margin-left: 35px;
 }
 
-label input[type="radio"]:last-child{
+#userform label input[type="radio"]:last-child{
 	margin-left: 10px;
 }
 
@@ -178,6 +188,7 @@ label input[type="radio"]:last-child{
 .btn {
 	width: 100%;
 }
+
 
 
 

@@ -58,4 +58,7 @@
 		if (conn != null) try { conn.close(); } catch(SQLException ex) {}
 	}
 	
+	//response.sendRedirect(request.getContextPath()+"/user/user_list.jsp");
+	response.sendRedirect(request.getContextPath()+"/user/user_search_list.jsp");
+	
 %>

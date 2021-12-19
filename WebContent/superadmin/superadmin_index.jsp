@@ -4,7 +4,7 @@
 <%
 	String admin = (String) session.getAttribute("S_LEVEL");
 	
-if(admin == "최고관리자") {		
+if(admin.equals("최고관리자")) {		
 %>
 <html>
 <head>
@@ -16,7 +16,7 @@ if(admin == "최고관리자") {
 <%@ include file="/module/top.jsp" %>
 <%@ include file="/module/superadmin_contents.jsp" %>
 <%
-} else if (admin == "관리자") {
+} else if (admin.equals("관리자")) {
 %>
 <script type="text/javascript">
 				alert('접근권한이 없습니다.');

@@ -43,7 +43,7 @@
 			</div>
 <!-- 1. 구매자일때 -->
 	<%
-		if(S_LEVEL =="구매자") {
+		if(S_LEVEL.equals("구매자")) {
 	%>
 			<nav class ="top-nav">
 				<ul>
@@ -51,7 +51,7 @@
 				</ul>
 			</nav>			
 	<%
-		} else if(S_LEVEL =="판매자") {
+		} else if(S_LEVEL.equals("판매자")) {
 	%>
 	
 <!-- 2. 판매자일때 -->		
@@ -64,13 +64,13 @@
 			</nav>
 
 	<%
-		} else if(S_LEVEL =="관리자") {
+		} else if(S_LEVEL.equals("관리자")) {
 	%>
 <!-- 3. 관리자일때 -->		
 			<nav class ="top-nav">
 				<ul>
 					<li><a href="<%=request.getContextPath() %>/user/user_insert_form.jsp">01회원등록</a></li>
-					<li><a href="<%=request.getContextPath() %>/user/user_list.jsp">02회원리스트</a></li>
+					<li><a href="<%=request.getContextPath() %>/user/user_search_list.jsp">02회원리스트</a></li>
 					<li><a href="#">03상품등록</a></li>
 					<li><a href="#">04상품리스트</a></li>
 				</ul>
@@ -78,13 +78,13 @@
 		
 		
 <%
-		} else if(S_LEVEL =="최고관리자") {
+		} else if(S_LEVEL.equals("최고관리자")) {
 %>
 <!-- 2. 최고관리자일때 -->			
 			<nav class ="top-nav">
 				<ul>
 					<li><a href="<%=request.getContextPath() %>/user/user_insert_form.jsp">01회원등록</a></li>
-					<li><a href="<%=request.getContextPath() %>/user/user_list.jsp">02회원리스트</a></li>
+					<li><a href="<%=request.getContextPath() %>/user/user_search_list.jsp">02회원리스트</a></li>
 					<li><a href="#">03상품등록</a></li>
 					<li><a href="#">04상품리스트</a></li>
 				</ul>

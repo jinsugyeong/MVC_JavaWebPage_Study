@@ -75,7 +75,7 @@ try{
 %>
 <h2>회원수정화면</h2>
 <br><br>
-<form action="<%=request.getContextPath() %>/user/user_update_action.jsp" method="post">
+<form action="<%=request.getContextPath() %>/user/user_update_action.jsp" method="post" id="userform">
 	<label><span>아이디 : </span><input type="text" name="uid" value="<%=dbid%>" readonly></label>
 	<label><span>비밀번호 : </span><input type="password" name="upw" value="<%=dbpw%>" ></label>
 <%

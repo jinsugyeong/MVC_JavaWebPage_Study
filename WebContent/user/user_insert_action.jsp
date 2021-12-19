@@ -46,7 +46,20 @@
 	int result= pstmt.executeUpdate();
 	System.out.println(result + "<-- result 값이 1이면 정상 실행");
 	
+
+	
 	//5단계: 쿼리 실행결과 사용 (insert의 경우 생략 가능단계)
+
+	if(result==1){
+%>
+<script type="text/javascript">
+	alert('<%=uname%>님 환영합니다');
+	location.href='<%= request.getContextPath()%>/index.jsp';
+</script>
+<%
+//response.sendRedirect(request.getContextPath()+"/index.jsp");
+	}
+	
 	}catch(SQLException ex){
 		out.println(ex.getMessage());
 		ex.printStackTrace();
@@ -56,7 +69,5 @@
 		//07단계 :Connection 객체 종료(close())
 		if (conn != null) try { conn.close(); } catch(SQLException ex) {}
 	}
-	
-
 	
 %>

@@ -1,7 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<form action="<%=request.getContextPath() %>/user/user_search_list.jsp" method="post">
+<style type="text/css">
+form{
+	widht: 400px;
+}
+</style>
+<form action="<%=request.getContextPath() %>/user/user_search_list.jsp" method="post" class="searchform">
 	<select name="sk" >
 		<option value="u_id">아이디</option>
 		<option value="u_level">권한</option>
