@@ -9,4 +9,5 @@
   <li>delete처리 (211218)</li>
   <li>search처리 (211219)</li>
   <li>include,redirect,session 응용 (211219)</li>
+  <li>상품테이블 추가, 검색처리 (211221)</li>
 </ul>
