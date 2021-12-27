@@ -1,6 +1,7 @@
 # layoutMG
 학원에서 배운 내용으로 혼자 실습 해보기 
 <ul>
+  <li>insert처리 useBean,DTO,DAO로 수정 (211227)</li>
   <li>상품테이블 추가, 검색처리 (211221)</li>
   <li>include,redirect,session 응용 (211219)</li>
   <li>search처리 (211219)</li>
