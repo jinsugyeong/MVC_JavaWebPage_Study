@@ -14,15 +14,15 @@
 			<h2>회원등록화면</h2>
 			<br><br>
 			<form action="<%=request.getContextPath() %>/user/user_insert_action.jsp" method="post" id="userform">
-				<label><span>아이디 : </span><input type="text" name="uid"></label>
-				<label><span>비밀번호 : </span><input type="password" name="upw"></label>
+				<label><span>아이디 : </span><input type="text" name="u_id"></label>
+				<label><span>비밀번호 : </span><input type="password" name="u_pw"></label>
 				<label class="radio">권한 :
-					<input type="radio" name="ulevel" value="구매자"> 구매자
-					<input type="radio" name="ulevel" value="판매자"> 판매자
+					<input type="radio" name="u_level" value="구매자"> 구매자
+					<input type="radio" name="u_level" value="판매자"> 판매자
 				 </label>				
-				<label><span>이름 : </span><input type="text" name="uname"></label>
-				<label><span>전화번호 : </span><input type="text" name="uphone"></label>
-				<label><span>이메일 : </span><input type="text" name="uemail"></label>
+				<label><span>이름 : </span><input type="text" name="u_name"></label>
+				<label><span>전화번호 : </span><input type="text" name="u_phone"></label>
+				<label><span>이메일 : </span><input type="text" name="u_email"></label>
 				<button type="submit">회원가입</button>
 			</form>
 

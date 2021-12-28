@@ -14,10 +14,10 @@ public class DriverDB {
 		Class.forName("com.mysql.jdbc.Driver");
 		
 		//2단계
-		String jdbcDriver = "jdbc:mysql://localhost:3306/dev42db?"+"useUnicode=true&characterEncoding=euckr";
-		String jdbcId = "dev42id";
-		String jdbcPass = "dev42pw";
-		return_conn = DriverManager.getConnection(jdbcDriver, jdbcId, jdbcPass);
+		String jdbcDriver = "jdbc:mysql://localhost:3306/db14jsg?"+"useUnicode=true&characterEncoding=euckr";
+		String jdbcUser = "dbid14jsg";
+		String jdbcPass = "dbpw14jsg";
+		return_conn = DriverManager.getConnection(jdbcDriver, jdbcUser, jdbcPass);
 		System.out.println(return_conn + " <-- return_conn");
 
 		return return_conn;
