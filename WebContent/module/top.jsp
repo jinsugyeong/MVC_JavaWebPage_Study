@@ -1,103 +1,66 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
-	String S_NAME = (String)session.getAttribute("S_NAME");
-	String S_LEVEL = (String)session.getAttribute("S_LEVEL");
+String S_ID = (String)session.getAttribute("S_ID");
+String S_NAME = (String)session.getAttribute("S_NAME");
+String S_LEVEL = (String)session.getAttribute("S_LEVEL");
+System.out.println(S_ID + "<- S_ID top.jsp");
+System.out.println(S_NAME + "<- S_NAME top.jsp");
+System.out.println(S_LEVEL + "<- S_LEVEL top.jsp");
 %>
-<!DOCTYPE html>	
-
-
-	<div id="header">
-		<div id="wrapper">
-			<h1><a href="<%=request.getContextPath() %>">8080</a></h1>
-
-<!-- ë¡œê·¸ì¸ ì „ í™”ë©´ ì‹œìž‘ -->
+   <!-- Begin Wrapper -->
+   <div id="wrapper">
+         <!-- Begin Header -->
+         <div id="header">
+  
+		       <a href="<%= request.getContextPath()%>/index.jsp">È¨À¸·Î</a>	<br/>	 <br/>
 <%
-	if(S_LEVEL==null){
+if(S_LEVEL == null){
 %>
-			
-			<div class="login">
-				<form action="<%=request.getContextPath() %>/login/login_action.jsp" method="post">
-					<label>id: <input type="text" name="id"></label>
-					<label>pw: <input type="password" name="pw"></label>
-					<input type="submit" value="login">
-				</form>
-			</div>
-			<nav class ="top-nav">
-				<ul>
-					<li><a href="<%=request.getContextPath() %>/user/user_insert_form.jsp">01íšŒì›ë“±ë¡</a></li>
-				</ul>
-			</nav>	
-<!-- ë¡œê·¸ì¸ ì „ í™”ë©´ ë -->
+<!-- 1-1·Î±×ÀÎ Àü È­¸é ½ÃÀÛ -->
+<a href="<%= request.getContextPath() %>/goods/goods_search_list.jsp">02»óÇ°¸®½ºÆ®</a><br/><br/>
+
+<form action="<%= request.getContextPath() %>/login/login_action.jsp" method="post" id="loginForm">
+	¾ÆÀÌµð : <input type="text" name="uid">	
+	ºñ¹ø : <input type="password" name="upw">	
+		<input type="submit" value="·Î±×ÀÎ">
+</form>
+<a href="<%= request.getContextPath() %>/minsert/m_insert_form.jsp"><button type="button" >È¸¿ø°¡ÀÔ</button></a>
+<!-- 1-1·Î±×ÀÎ Àü È­¸é End -->
+<%}else{ %>
+<!-- 1-2·Î±×ÀÎ ÈÄ È­¸é ½ÃÀÛ -->
+<%
+	if(S_LEVEL.equals("±¸¸ÅÀÚ")){
+%>	
+<a href="<%= request.getContextPath() %>/mupdate/m_update_form.jsp?send_id=<%=S_ID%>">01¸¶ÀÌÆäÀÌÁö</a>
+<a href="<%= request.getContextPath() %>/goods/goods_search_list.jsp">02»óÇ°¸®½ºÆ®</a> <br/><br/>
 
 
-<!-- ë¡œê·¸ì¸ í›„ í™”ë©´ ì‹œìž‘-->
-			
 <%
-} else {
+	}else if(S_LEVEL.equals("ÆÇ¸ÅÀÚ")){
 %>
-<div class="login">
-				<p><%=S_LEVEL %> <b> <%=S_NAME %></b>ë‹˜ ì•ˆë…•í•˜ì„¸ìš”</p>
-				<a href="<%=request.getContextPath() %>/login/logout.jsp">
-				<input type="submit" value="logout" class="btn-logout"></input></a>
-			</div>
-<!-- 1. êµ¬ë§¤ìžì¼ë•Œ -->
-	<%
-		if(S_LEVEL.equals("êµ¬ë§¤ìž")) {
-	%>
-			<nav class ="top-nav">
-				<ul>
-					<li><a href="<%=request.getContextPath() %>/user/user_insert_form.jsp">01íšŒì›ë“±ë¡</a></li>
-				</ul>
-			</nav>			
-	<%
-		} else if(S_LEVEL.equals("íŒë§¤ìž")) {
-	%>
-	
-<!-- 2. íŒë§¤ìžì¼ë•Œ -->		
-			<nav class ="top-nav">
-				<ul>
-					<li><a href="<%=request.getContextPath() %>/user/user_insert_form.jsp">01íšŒì›ë“±ë¡</a></li>
-					<li><a href="#">03ìƒí’ˆë“±ë¡</a></li>
-					<li><a href="#">04ìƒí’ˆë¦¬ìŠ¤íŠ¸</a></li>
-				</ul>
-			</nav>
+<a href="<%= request.getContextPath() %>/mupdate/m_update_form.jsp?send_id=<%=S_ID%>">01¸¶ÀÌÆäÀÌÁö</a>
+<a href="<%= request.getContextPath() %>/goods/goods_search_list.jsp">02»óÇ°¸®½ºÆ®</a> 
+<a href="<%= request.getContextPath() %>/goods/goods_insert_form.jsp">04»óÇ°µî·Ï</a>
+<a href="<%= request.getContextPath() %>/goods/goods_admin.jsp">05»óÇ°°ü¸®</a><br/><br/>
 
-	<%
-		} else if(S_LEVEL.equals("ê´€ë¦¬ìž")) {
-	%>
-<!-- 3. ê´€ë¦¬ìžì¼ë•Œ -->		
-			<nav class ="top-nav">
-				<ul>
-					<li><a href="<%=request.getContextPath() %>/user/user_insert_form.jsp">01íšŒì›ë“±ë¡</a></li>
-					<li><a href="<%=request.getContextPath() %>/user/user_search_list.jsp">02íšŒì›ë¦¬ìŠ¤íŠ¸</a></li>
-					<li><a href="#">03ìƒí’ˆë“±ë¡</a></li>
-					<li><a href="#">04ìƒí’ˆë¦¬ìŠ¤íŠ¸</a></li>
-				</ul>
-			</nav>
-		
-		
 <%
-		} else if(S_LEVEL.equals("ìµœê³ ê´€ë¦¬ìž")) {
+	}else if(S_LEVEL.equals("°ü¸®ÀÚ") || S_LEVEL.equals("ÃÖ°í°ü¸®ÀÚ")){
 %>
-<!-- 2. ìµœê³ ê´€ë¦¬ìžì¼ë•Œ -->			
-			<nav class ="top-nav">
-				<ul>
-					<li><a href="<%=request.getContextPath() %>/user/user_insert_form.jsp">01íšŒì›ë“±ë¡</a></li>
-					<li><a href="<%=request.getContextPath() %>/user/user_search_list.jsp">02íšŒì›ë¦¬ìŠ¤íŠ¸</a></li>
-					<li><a href="#">03ìƒí’ˆë“±ë¡</a></li>
-					<li><a href="#">04ìƒí’ˆë¦¬ìŠ¤íŠ¸</a></li>
-				</ul>
-			</nav>			
-			
+<a href="<%= request.getContextPath() %>/mupdate/m_update_form.jsp?send_id=<%=S_ID%>">01¸¶ÀÌÆäÀÌÁö</a> <!-- ¾÷µ¥ÀÌÆ®·Î·Î±×ÀÎÇÑ»ç¶÷¾ÆÀÌµð -->
+<a href="<%= request.getContextPath() %>/goods/goods_search_list.jsp">02»óÇ°¸®½ºÆ®</a> <!-- ±×³É»óÇ°Å×ÀÌºí¸®½ºÆ®+°Ë»öÆûinclude -->
+<a href="<%= request.getContextPath() %>/msearch/m_search_list.jsp">03È¸¿ø¸®½ºÆ®</a> <!-- È¸¿øµî·ÏÆû ¿ÞÂÊ¸Þ´º¿¡ include -->
+<a href="<%= request.getContextPath() %>/goods/goods_insert_form.jsp">04»óÇ°µî·Ï</a> <!-- ÆÇ¸ÅÀÚÀÌ»óºÎÅÍ¸¸ -->
+<a href="<%= request.getContextPath() %>/goods/goods_admin.jsp">05»óÇ°°ü¸®</a><!-- ·Î±×ÀÎÇÑ»ç¶÷ »óÇ°¸¸³ª¿À°Ô -->
+<a href="<%= request.getContextPath() %>/superadmin/superadmin_index.jsp">06ÃÖ°í°ü¸®ÀÚ¸Þ´º</a><br/><br/><!-- °ü¸®ÀÚ¶ûÃÖ°í°ü¸®ÀÚ¸¸º¸ÀÌ°í, ÃÖ°í°ü¸®ÀÚ¸¸ µé¾î°¥¼öÀÖÀ½ -->
 <%
-		}
+	}
 %>
-<!-- ë¡œê·¸ì¸ í›„ í™”ë©´ ë -->
-<%
-}
-%>
-		</div>
-		</div>
-		<!-- End Header -->
-
+	<%= S_ID %> ¾ÆÀÌµð / <%= S_LEVEL %> ±ÇÇÑ ·Î±×ÀÎ Áß
+	<a href="<%= request.getContextPath() %>/login/logout.jsp">·Î±×¾Æ¿ô</a>
+<!-- 1-2·Î±×ÀÎ ÈÄ È­¸é End -->
+<%} %>
+			   
+		 </div>
+		 <!-- End Header -->

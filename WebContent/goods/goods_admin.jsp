@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page import="java.sql.DriverManager" %>
 <%@ page import="java.sql.Connection" %>
@@ -8,9 +8,9 @@
 <%@ page import="java.sql.SQLException" %>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/main.css" /> 
+<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/main2.css" /> 
 <style type="text/css">
 table {
 	font-family: arial, sans-serif;
@@ -33,25 +33,24 @@ tr:nth-child(even) {
 <%@ include file="/module/top.jsp" %>
 <%@ include file="/module/left.jsp" %>	
 <form action="<%=request.getContextPath() %>/goods/goods_admin.jsp" method="post">
-	<b>ì •ë ¬ê¸°ì¤€</b>
-	<label><input type="checkbox" name="sort" value="g_date" checked>ë“±ë¡ë‚ ì§œ</label>
-	<label><input type="checkbox" name="sort" value="g_cate">ì¹´í…Œê³ ë¦¬</label>
-	<label><input type="checkbox" name="sort" value="g_name">ì´ë¦„</label>
-	<label><input type="checkbox" name="sort" value="g_price">ê°€ê²©</label>
-	<input type="submit" value="ì •ë ¬">
+	<b>Á¤·Ä±âÁØ</b>
+	<label><input type="checkbox" name="sort" value="g.g_date" checked>µî·Ï³¯Â¥</label>
+	<label><input type="checkbox" name="sort" value="g.g_cate">Ä«Å×°í¸®</label>
+	<label><input type="checkbox" name="sort" value="g.g_name">ÀÌ¸§</label>
+	<label><input type="checkbox" name="sort" value="g.g_price">°¡°İ</label>
+	<input type="submit" value="Á¤·Ä">
 </form>
 <br>
 <table border="1" width="100%">
   <tr>
-    <th>ì¹´í…Œê³ ë¦¬</th>
-    <th>ìƒí’ˆëª…</th>
-    <th>ê°€ê²©</th>
-    <th>ìƒ‰ìƒ</th>
-    <th>ì‚¬ì´ì¦ˆ</th>
-    <th>ë“±ë¡ë‚ ì§œ</th>
-    <th>ìƒì„¸ì„¤ëª…</th>
-    <th>ìˆ˜ì •</th>
-    <th>ì‚­ì œ</th>    
+    <th>Ä«Å×°í¸®</th>
+    <th>»óÇ°¸í</th>
+    <th>°¡°İ</th>
+    <th>»ö»ó</th>
+    <th>»çÀÌÁî</th>
+    <th>µî·Ï³¯Â¥</th>
+    <th>¼öÁ¤</th>
+    <th>»èÁ¦</th>    
   </tr>
   
 <%
@@ -59,70 +58,57 @@ String[] sort = request.getParameterValues("sort");
 Connection conn = null;
 PreparedStatement pstmt = null;
 ResultSet rs = null;
-String id = (String)session.getAttribute("S_ID");
-String sq = "SELECT * FROM tb_goods join tb_member on tb_goods.m_id=tb_member.m_id where tb_member.m_id=?";
+String id = (String)session.getAttribute("S_ID"); //·Î±×ÀÎ ¾ÆÀÌµğ
+String sq = "SELECT * FROM tb_goods AS g JOIN tb_member AS m ON g.m_id=m.m_id where m.m_id=?";
 
-
-
-//1ë‹¨ê³„ ë“œë¼ì´ë²„ë¡œë”©
+//1´Ü°è µå¶óÀÌ¹ö·Îµù
 Class.forName("com.mysql.jdbc.Driver");
 
-try{
-	//2ë‹¨ê³„ DBì—°ê²°
-	String jdbcDriver = "jdbc:mysql://localhost:3306/dev42db?" +
-				"useUnicode=true&characterEncoding=euckr";
-	String dbUser = "dev42id";
-	String dbPass = "dev42pw";
-		
-	conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+
+//2´Ü°è DB¿¬°á
+String jdbcDriver = "jdbc:mysql://localhost:3306/dev42db?" +
+			"useUnicode=true&characterEncoding=euckr";
+String dbUser = "dev42id";
+String dbPass = "dev42pw";
 	
-	//3ë‹¨ê³„
-	//ì¡°ê±´ì€ ë¡œê·¸ì¸í•œ ì‚¬ëŒ ì•„ì´ë””, ì •ë ¬ì„ order byë¡œ check boxí•œ ë¬¸ìì—´ ê°€ì ¸ì™€ì•¼í•¨
-	
-	
-	if(sort == null){
-		System.out.println("ê·¸ëƒ¥");
-		pstmt = conn.prepareStatement(sq);
-		pstmt.setString(1, id);
+conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+
+//3´Ü°è
+//Á¶°ÇÀº ·Î±×ÀÎÇÑ »ç¶÷ ¾ÆÀÌµğ, Á¤·ÄÀ» order by·Î check boxÇÑ ¹®ÀÚ¿­ °¡Á®¿Í¾ßÇÔ
+if(sort != null){
+	sq += " order by ";
+	for(int i=0; i<sort.length; i++){
+		if(sort.length==1){
+			sq += sort[i];
+		}else{
+			sq += (i!=sort.length-1) ? sort[i]+"," : sort[i];
+		}
 	}
 	
-	
-	
-	System.out.println(pstmt + " <--ì¿¼ë¦¬ë¬¸ í™•ì¸");
-	rs = pstmt.executeQuery();
-	
-	while(rs.next()){
-		%>
-				<tr>
-					<td><%= rs.getString("g_cate")%></td>
-					<td><%= rs.getString("g_name")%></td>
-					<td><%= rs.getString("g_price")%></td>
-					<td><%= rs.getString("g_color")%></td>
-					<td><%= rs.getString("g_size")%></td>
-					<td><%= rs.getString("g_date")%></td>
-					<td><%= rs.getString("g_desc")%></td>
-					<td>
-		<a href="<%= request.getContextPath() %>/mupdate/m_update_form.jsp?send_id=<%= rs.getString("m_id")%>">ìˆ˜ì •</a>			
-					</td>
-					<td>
-		<a href="<%= request.getContextPath() %>/mdelete/m_delete_action.jsp?send_id=<%= rs.getString("m_id")%>">ì‚­ì œ</a>			
-					</td>	
-				</tr>
-		<%		
-			}
-	
-}catch(SQLException ex){
-	out.println(ex.getMessage());
-	ex.printStackTrace();
-}finally{
-	// 6ë‹¨ê³„ ì‚¬ìš©í•œ Statement ì¢…ë£Œ
-	if (rs != null) try { rs.close(); } catch(SQLException ex) {}
-	if (pstmt != null) try { pstmt.close(); } catch(SQLException ex) {}
-	
-	// 7. ì»¤ë„¥ì…˜ ì¢…ë£Œ
-	if (conn != null) try { conn.close(); } catch(SQLException ex) {}
+}
+pstmt = conn.prepareStatement(sq);
+pstmt.setString(1, id);
+System.out.println(pstmt + " <--Äõ¸®¹® È®ÀÎ");
+
+//4´Ü°è Äõ¸®½ÇÇà
+rs = pstmt.executeQuery();
+
+while(rs.next()){
+	%>
+	<tr>
+		<td><%= rs.getString("g_cate")%></td>
+		<td><%= rs.getString("g_name")%></td>
+		<td><%= rs.getString("g_price")%></td>
+		<td><%= rs.getString("g_color")%></td>
+		<td><%= rs.getString("g_size")%></td>
+		<td><%= rs.getString("g_date")%></td>
+		<td><a href="<%= request.getContextPath() %>/goods/goods_update_action.jsp?send_id=<%= rs.getString("m_id")%>">¼öÁ¤</a></td>
+		<td><a href="<%= request.getContextPath() %>/goods/goods_delete_action.jsp?send_id=<%= rs.getString("m_id")%>">»èÁ¦</a></td>	
+	</tr>
+	<%
 }
 %>
+
   
 </table>
 <%@ include file="/module/hadan.jsp" %>		 
