@@ -1,4 +1,4 @@
-######학원에서 배운 내용으로 실습 다시 하기
+#학원에서 배운 내용으로 실습 다시 하기
 
 
 
@@ -10,7 +10,7 @@
 
 ***Clear***
 | Date | Note |
-| :---: | :--- |
+| :---: | --- |
 | `220104` | checkbox로 다중정렬 조건받기 성공, module/top.jsp 수정 |
 | `211228` | db연결수정/insert,update,delete,search,login처리 DAO,DTO로 |
 | `211227` | insert처리 useBean,DTO,DAO로 수정 |
