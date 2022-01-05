@@ -28,7 +28,6 @@ tr:nth-child(even) {
 }
 </style>
 </head>
-
 <body>
 <%@ include file="/module/top.jsp" %>
 <%@ include file="/module/left.jsp" %>	
@@ -55,11 +54,13 @@ tr:nth-child(even) {
   
 <%
 String[] sort = request.getParameterValues("sort");
+
 Connection conn = null;
 PreparedStatement pstmt = null;
 ResultSet rs = null;
+
 String id = (String)session.getAttribute("S_ID"); //로그인 아이디
-String sq = "SELECT * FROM tb_goods AS g JOIN tb_member AS m ON g.m_id=m.m_id where m.m_id=?";
+String sq = "SELECT * FROM tb_goods AS g JOIN tb_user AS u ON g.u_id=u.u_id where u.u_id=?";
 
 //1단계 드라이버로딩
 Class.forName("com.mysql.jdbc.Driver");
@@ -102,8 +103,8 @@ while(rs.next()){
 		<td><%= rs.getString("g_color")%></td>
 		<td><%= rs.getString("g_size")%></td>
 		<td><%= rs.getString("g_date")%></td>
-		<td><a href="<%= request.getContextPath() %>/goods/goods_update_action.jsp?send_id=<%= rs.getString("m_id")%>">수정</a></td>
-		<td><a href="<%= request.getContextPath() %>/goods/goods_delete_action.jsp?send_id=<%= rs.getString("m_id")%>">삭제</a></td>	
+		<td><a href="<%= request.getContextPath() %>/goods/goods_update_action.jsp?send_id=<%= rs.getString("g_code")%>">수정</a></td>
+		<td><a href="<%= request.getContextPath() %>/goods/goods_delete_action.jsp?send_id=<%= rs.getString("g_code")%>">삭제</a></td>	
 	</tr>
 	<%
 }
