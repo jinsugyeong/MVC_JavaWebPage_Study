@@ -76,10 +76,10 @@ Class.forName("com.mysql.jdbc.Driver");
 
 try{
 	//2단계 DB연결
-	String jdbcDriver = "jdbc:mysql://localhost:3306/dev42db?" +
+	String jdbcDriver = "jdbc:mysql://localhost:3306/db14jsg?" +
 				"useUnicode=true&characterEncoding=euckr";
-	String dbUser = "dev42id";
-	String dbPass = "dev42pw";
+	String dbUser = "dbid14jsg";
+	String dbPass = "dbpw14jsg";
 		
 	conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 	System.out.println(conn + "2단계 DB연결");
