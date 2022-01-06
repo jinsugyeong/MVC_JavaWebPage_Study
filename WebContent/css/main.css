@@ -21,7 +21,9 @@ a{
 	display: block;
 	color: #333;
 }
-
+textarea {
+	resize: none;
+}
 a:hover {
 	font-weight: bold;
 }
@@ -181,6 +183,22 @@ div.login {
 }
 
 
+#goodsform label {
+	display: block;
+	margin-bottom: 10px;
+}
+
+#goodsform label span {
+	display: inline-block;
+	width: 70px;
+	text-align: right;
+	padding-right: 10px;
+}
+
+#goodsform label select{
+	width: 173px;
+}
+
 #Contents th{
 	text-align: center;
 }
@@ -188,7 +206,6 @@ div.login {
 .btn {
 	width: 100%;
 }
-
 
 
 
