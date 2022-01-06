@@ -195,8 +195,19 @@ div.login {
 	padding-right: 10px;
 }
 
+#goodsform label:nth-child(7) span {
+	vertical-align: top;
+}
+
 #goodsform label select{
-	width: 173px;
+	width: 166px;
+}
+
+#goodsform input[type="submit"]{
+	margin-top: 10px;
+	cursor: pointer;
+	padding: 1px 15px;
+	margin-left: 180px;
 }
 
 #Contents th{

@@ -34,5 +34,5 @@
 	<label><input type="radio" name="cate" value="아우터">아우터</label>
 	<label><input type="radio" name="cate" value="상의">상의</label>
 	<label><input type="radio" name="cate" value="하의">하의</label>
-	<label><input type="radio" name="cate" value="악세사리">악세사리</label>
+	<label><input type="radio" name="cate" value="악세서리">악세서리</label>
 </form>

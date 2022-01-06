@@ -132,7 +132,7 @@ try{
 			<td><%= rs.getString("g_name")%></td>
 			<td><%= rs.getString("g_price")%></td>
 			<td><%= rs.getString("g_color")%></td>
-			<td><%= rs.getString("g_size")%></td>
+			<td><%= rs.getString("g_size")%></td>	
 			<td><%= rs.getString("g_desc")%></td>
 		</tr>
 <%

@@ -18,7 +18,7 @@ public class DriverDB {
 		String jdbcUser = "dbid14jsg";
 		String jdbcPass = "dbpw14jsg";
 		return_conn = DriverManager.getConnection(jdbcDriver, jdbcUser, jdbcPass);
-		System.out.println(return_conn + " <-- return_conn");
+		//System.out.println(return_conn + " <-- return_conn");
 
 		return return_conn;
 		

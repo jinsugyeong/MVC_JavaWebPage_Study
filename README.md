@@ -2,7 +2,6 @@
 <br>
 
 ***Do List🤔***
-- [ ] `22/01/06` goods_insert 완성하기
 - [ ] goods Folder code 완성
 - [ ] DAO,DTO 이용하기
 - [ ] css 수정
@@ -10,6 +9,7 @@
 
 | Date | Note |
 | :---: | --- |
+| `22/01/06` | goods_insert form,action 페이지 완성 |
 | `22/01/05` | encoding 수정, top.jsp 다시 |
 | `22/01/04` | checkbox로 다중정렬 조건받기 성공<br>module/top.jsp 수정 |
 | `21/12/28` | db 연결 수정<br> insert,update,delete,search,login처리 DAO,DTO로 |
