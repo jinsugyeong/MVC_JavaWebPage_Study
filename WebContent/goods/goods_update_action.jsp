@@ -1,12 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<!DOCTYPE html>
+<%@ page import="kr.or.ksmart.dao.Gdao" %>
+<%
+request.setCharacterEncoding("UTF-8");
+String u_id = request.getParameter("u_id");
+String g_name = request.getParameter("gname");
+String g_cate = request.getParameter("gcate");
+String g_price = request.getParameter("gprice");
+String g_color = request.getParameter("gcolor");
+String g_size = request.getParameter("gsize");
+String g_desc = request.getParameter("gdesc");
 
-</body>
-</html>
+	Gdao gdao = new Gdao();
+	
+%>

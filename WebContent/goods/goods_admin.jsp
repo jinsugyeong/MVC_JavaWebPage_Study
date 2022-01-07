@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <%@ page import="java.sql.DriverManager" %>
 <%@ page import="java.sql.Connection" %>
 <%@ page import="java.sql.PreparedStatement" %>
@@ -103,8 +103,8 @@ while(rs.next()){
 		<td><%= rs.getString("g_color")%></td>
 		<td><%= rs.getString("g_size")%></td>
 		<td><%= rs.getString("g_date")%></td>
-		<td><a href="<%= request.getContextPath() %>/goods/goods_update_action.jsp?send_id=<%= rs.getString("g_code")%>">수정</a></td>
-		<td><a href="<%= request.getContextPath() %>/goods/goods_delete_action.jsp?send_id=<%= rs.getString("g_code")%>">삭제</a></td>	
+		<td><a href="<%= request.getContextPath() %>/goods/goods_update_form.jsp?send_gcode=<%= rs.getString("g_code")%>">수정</a></td>
+		<td><a href="<%= request.getContextPath() %>/goods/goods_delete_action.jsp?send_gcode=<%= rs.getString("g_code")%>">삭제</a></td>	
 	</tr>
 	<%
 }
