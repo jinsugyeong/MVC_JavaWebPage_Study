@@ -2,7 +2,7 @@
 <br>
 
 ***Do List🤔***
-- [ ] `22/01/06` goods_delete, goods_update 완성
+- [ ] `22/01/07` goods_delete, goods_update 완성
 - [ ] goods Folder code 완성
 - [ ] DAO,DTO 이용하기
 - [ ] css 수정
