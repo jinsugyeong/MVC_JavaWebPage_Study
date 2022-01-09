@@ -74,6 +74,7 @@ for(int i =0; i<alu.size(); i++){
 		<td><a href="<%=request.getContextPath()%>/user/user_delete_action.jsp?send_id=<%=u.getU_id()%>">삭제버튼</a></td>
 	</tr>
 <%
+num++;
 }
 %>
 

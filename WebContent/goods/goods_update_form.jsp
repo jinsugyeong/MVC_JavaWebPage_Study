@@ -27,10 +27,10 @@
 %>
 	<h2>상품수정화면</h2>
 	<br><br>
-	<form action="<%=request.getContextPath() %>/goods/goods_insert_action.jsp" method="post" id="goodsform">
+	<form action="<%=request.getContextPath() %>/goods/goods_update_action.jsp" method="post" id="goodsform">
 		<input type="hidden" name="gcode" value="<%= dbgcode %>">
-		<label><span>상품명 : </span><input type="text" name="name" value="<%= dbgname%>"></label>
-		<label><span>카테고리 : </span><select name="cate">
+		<label><span>상품명 : </span><input type="text" name="gname" value="<%= dbgname%>"></label>
+		<label><span>카테고리 : </span><select name="gcate">
 			<option value="<%=dbgcate%>"><%=dbgcate%></option>
 			<option value="아우터">아우터</option>			
 			<option value="상의">상의</option>			
@@ -38,10 +38,10 @@
 			<option value="가방">가방</option>			
 			<option value="악세서리">악세서리</option>		
 		</select></label>		
-		<label><span>가격 : </span><input type="text" name="price" value="<%= dbgprice%>"></label>
+		<label><span>가격 : </span><input type="text" name="gprice" value="<%= dbgprice%>"></label>
 		<label><span>색상 : </span><input type="text" name="gcolor" value="<%= dbgcolor%>"></label>
-		<label><span>사이즈 : </span><input type="text" name="size" value="<%= dbgsize%>"></label>
-		<label><span>상세설명 : </span><textarea rows="5" cols="21" name="desc"><%= dbgdesc%></textarea></label>
+		<label><span>사이즈 : </span><input type="text" name="gsize" value="<%= dbgsize%>"></label>
+		<label><span>상세설명 : </span><textarea rows="5" cols="21" name="gdesc"><%= dbgdesc%></textarea></label>
 		<input type="submit" value="등록">
 	</form>
 

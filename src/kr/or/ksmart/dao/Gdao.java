@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import kr.or.ksmart.driverdb.DriverDB;
 import kr.or.ksmart.dto.Goods;
@@ -117,4 +118,104 @@ public class Gdao {
 		conn.close();
 	}
 	
+	public ArrayList<Goods> gSearch(String sk, String sv, String cate) throws ClassNotFoundException, SQLException{
+		
+		ArrayList<Goods> alu = new ArrayList<Goods>();
+		String sq = "SELECT * FROM tb_goods";
+		
+		DriverDB db = new DriverDB();
+		conn = db.driverDbcon();
+		
+		if(cate==null){//카테고리 선택안할 때
+			
+			if((sk==null && sv==null)||(sk=="" && sv=="") ){
+				//처음 로딩했을때
+				pstmt = conn.prepareStatement(sq);
+			}else{
+				//sk랑sv에 값이 있을때 조건1개
+				pstmt = conn.prepareStatement(sq+" where "+sk +"=?");
+				pstmt.setString(1, sv);
+			}
+			
+		}else{//카테고리 선택할때		
+			
+			if((sk=="" && sv=="") || (sk!="" && sv=="")){
+				//카테고리 선택하고 sk,sv없을때 조건1개
+				pstmt = conn.prepareStatement(sq+" where g_cate =?");
+				pstmt.setString(1, cate);
+			}else {
+				//카테고리 선택하고 sk,sv도 있을때 조건2개
+				pstmt = conn.prepareStatement(sq+" where "+ sk + "=? and g_cate =?");
+				pstmt.setString(1, sv);
+				pstmt.setString(2, cate);
+			}
+			
+		}
+		System.out.println(pstmt + " <-- 쿼리문 확인");
+		
+		//4 쿼리 실행
+		rs = pstmt.executeQuery();
+		
+		while(rs.next()) {
+			g = new Goods();
+			g.setG_cate(rs.getString("g_cate"));
+			g.setG_name(rs.getString("g_name"));
+			g.setG_price(rs.getString("g_price"));
+			g.setG_color(rs.getString("g_color"));
+			g.setG_size(rs.getString("g_size"));
+			g.setG_desc(rs.getString("g_desc"));
+			alu.add(g);
+		}
+		
+		rs.close();
+		pstmt.close();
+		conn.close();
+		
+		return alu;
+	}
+
+	public ArrayList<Goods> gAdmin(String[] sort, String id) throws ClassNotFoundException, SQLException {
+		ArrayList<Goods> alu = new ArrayList<Goods>();
+		String sq = "SELECT * FROM tb_goods AS g JOIN tb_user AS u ON g.u_id=u.u_id where u.u_id=?";
+		
+		DriverDB db = new DriverDB();
+		conn = db.driverDbcon();
+		
+		if(sort != null){
+			sq += " order by ";
+			for(int i=0; i<sort.length; i++){
+				if(sort.length==1){
+					sq += sort[i];
+				}else{
+					sq += (i!=sort.length-1) ? sort[i]+"," : sort[i];
+				}
+			}
+			
+		}
+		pstmt = conn.prepareStatement(sq);
+		pstmt.setString(1, id);
+		System.out.println(pstmt + " <--쿼리문 확인");
+		
+		//4단계 쿼리실행
+		rs = pstmt.executeQuery();
+		
+		while(rs.next()) {
+			g = new Goods();
+			g.setG_code(rs.getString("g_code"));
+			g.setG_cate(rs.getString("g_cate"));
+			g.setG_name(rs.getString("g_name"));
+			g.setG_price(rs.getString("g_price"));
+			g.setG_color(rs.getString("g_color"));
+			g.setG_size(rs.getString("g_size"));
+			g.setG_date(rs.getString("g_date"));
+			alu.add(g);
+		}
+		
+		rs.close();
+		pstmt.close();
+		conn.close();
+		
+		return alu;
+		
+	}
 }
