@@ -156,14 +156,18 @@ div.login {
 	width: 260px;
 	margin-left: 10px;
 }
-
+#userform span {
+	padding-left: 10px;
+}
 #userform label {
 	display: block;
 	padding-bottom: 20px;
 	clear: both;
-	padding-left: 10px;
 }
-
+#userform .radio {
+	display: inline-block;
+	margin-left:30px;
+}
 #userform label input[type="text"] {
 	float: right;
 }
@@ -181,7 +185,12 @@ div.login {
 #userform label input[type="radio"]:last-child{
 	margin-left: 10px;
 }
-
+#userform input[name="u_id"]{
+	
+}
+#userform #idCheck {
+	position: absolute;
+}
 
 #goodsform label {
 	display: block;
