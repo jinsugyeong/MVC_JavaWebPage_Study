@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="kr.or.ksmart.dao.Udao" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,8 +29,8 @@
 	var f = document.getElementById('userform');
 	var joinBtn = document.getElementById('joinBtn');
 	function idCheck() {
-		open('popup.html'
-			,'팝업띄우기'
+		open('id_check_popup.jsp'
+			,'아이디 중복 검사'
 			,'width=300, height=400, left=100, top=100, scrollbar=no'
 			);
 	}
@@ -51,13 +50,6 @@
 		
 		
 	}	
-<%
-	String newId = request.getParameter("u_id");
-
-	Udao udao = new Udao();
-	udao.uSeleteUpdate(newId);
-	
-%>
 </script>
 <%@ include file="/module/hadan.jsp" %>
 </body>

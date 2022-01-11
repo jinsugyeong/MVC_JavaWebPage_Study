@@ -178,7 +178,6 @@ public class Udao {
 		DriverDB db = new DriverDB();
 		conn = db.driverDbcon();
 		ArrayList<User> alu = new ArrayList<>();
-		String alert = null;
 		String selectQuery = "SELECT * FROM tb_user";
 		
 		if(sk==null && sv==null) {
@@ -189,7 +188,6 @@ public class Udao {
 		}else if(sk!=null && sv=="") {
 			System.out.println("1-2 sk엔 값이 있고 sv는 공백일 때");
 			pstmt = conn.prepareStatement(selectQuery);
-			alert="검색할 내용을 입력하세요";
 			
 		}else{
 			System.out.println("1-3 sk와 sv 모두 null이 아닐때");
