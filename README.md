@@ -2,6 +2,7 @@
 <br>
 
 ***Do List🤔***
+- [ ] id 중복검사 popup창으로 띄워서 db랑 비교하기
 - [ ] css 수정
 - [ ] form에 유효성 검사 추가하기
 - [x] goods Folder code 완성
