@@ -2,7 +2,7 @@
 <br>
 
 ***Do List🤔***
-- [ ] MVC model 2 mysql 방법 알아보기
+- [ ] MVC model2 context.xml oracle -> mysql 수정하기
 - [ ] id 중복검사 popup창으로 띄워서 db랑 비교하기
 - [ ] form에 유효성 검사 추가하기
 - [x] goods Folder code 완성
