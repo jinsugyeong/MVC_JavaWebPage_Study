@@ -2,12 +2,21 @@
 <br>
 
 ***Do List🤔***
+- [ ] MVC model 2 mysql 방법 알아보기
 - [ ] id 중복검사 popup창으로 띄워서 db랑 비교하기
-- [ ] css 수정
 - [ ] form에 유효성 검사 추가하기
 - [x] goods Folder code 완성
 - [x] DAO,DTO 이용하기
 
+<br><br>
+
+***MVC model 2***
+| Date | Note |
+| :---: | --- |
+
+<br><br>
+
+***MVC model 1***
 | Date | Note |
 | :---: | --- |
 | `22/01/08` | goods_update_action 완성<br>goods_search_list,goods_admin DAO/DTO로 수정 |
