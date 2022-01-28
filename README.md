@@ -3,7 +3,6 @@
 
 ***Do List🤔***
 - [ ] MVC model2 context.xml oracle -> mysql 수정하기
-- [ ] id 중복검사 popup창으로 띄워서 db랑 비교하기
 - [ ] form에 유효성 검사 추가하기
 - [x] goods Folder code 완성
 - [x] DAO,DTO 이용하기
@@ -19,6 +18,7 @@
 ***MVC model 1***
 | Date | Note |
 | :---: | --- |
+| `22/01/28` | id 중복검사 ajax처리 |
 | `22/01/08` | goods_update_action 완성<br>goods_search_list,goods_admin DAO/DTO로 수정 |
 | `22/01/07` | goods_delete_action, goods_update_form 완성 |
 | `22/01/06` | goods_insert form,action 페이지 완성 |
