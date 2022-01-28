@@ -6,6 +6,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 <link href="<%=request.getContextPath() %>/css/main.css" rel="stylesheet" type="text/css">
+<script src="<%=request.getContextPath() %>/resources/js/jquery-3.6.0.min.js" ></script>
+<style type="text/css">
+	#uidLabel{
+		position: relative;
+	}
+	#idCheck {
+		position: absolute;
+		right: -65px;
+	}
+	.error{
+		border: 2px solid #f00;
+	}
+</style>
 </head>
 <body>
 <%@ include file="/module/top.jsp" %>
@@ -14,8 +27,9 @@
 	<h2>회원등록화면</h2>
 	<br><br>
 	<form action="<%=request.getContextPath() %>/user/user_insert_action.jsp" method="post" id="userform">
-		<label><span>아이디 : </span><input type="text" name="u_id" id="u_id"><button type="button" id="idCheck">중복검사</button></label>
-		<label><span>비밀번호 : </span><input type="password" name="u_pw"></label>
+		<label id="uidLabel"><span>아이디 : </span><input type="text" name="u_id" id="u_id">
+		<button type="button" id="idCheck">중복검사</button></label>
+		<label><span>비밀번호 : </span><input type="password" name="u_pw" ></label>
 		<span>권한 : </span>
 		<label class="radio"><input type="radio" name="u_level" value="구매자"> 구매자</label>
 		<label class="radio"><input type="radio" name="u_level" value="판매자"> 판매자</label>		
@@ -28,16 +42,18 @@
 	<script type="text/javascript">
 		var f = document.getElementById('userform');
 		var joinBtn = document.getElementById('joinBtn');
-		function idCheck() {
-			open('id_check_popup.jsp'
-				,'아이디 중복 검사'
-				,'width=300, height=400, left=100, top=100, scrollbar=no'
-				);
-		}
 		
 		var $u_id = $('#u_id');
 		$('#idCheck').click(function() {
-			var id = $u_id.val();			
+			if($u_id.hasClass('error')){
+				 $u_id.removeClass('error');
+			}
+			var id = $u_id.val();	
+			if(id==''){
+				 $u_id.addClass('error');
+				 $u_id.focus();
+				 return;
+			}
 			var request = $.ajax({
 				url: "idCheck.jsp",		
 				method: "POST",			
@@ -48,19 +64,22 @@
 			request.done(function(data){
 				if(data.result == 0){
 					console.log('사용 가능한 아이디 입니다.');
+					var result =confirm('사용 가능한 아이디 입니다. 사용하시겠습니까?');
+					if(result){
+						$u_id.attr('readonly','readonly');
+					}
 				}else {
-					console.log('사용 불가능한 아이디 입니다.');
+					 $u_id.addClass('error');
+					 $u_id.val('');
+					 $u_id.focus();
+					 return;
 				}
 			});
 			
 		});
 		
 			
-		if(trimCheck(f.u_id, '아이디를')==false)return;
-		if(trimCheck(f.u_pw, '비밀번호를')==false)return;
-			
-			
-		}	
+		
 	</script>
 <%@ include file="/module/hadan.jsp" %>
 </body>
