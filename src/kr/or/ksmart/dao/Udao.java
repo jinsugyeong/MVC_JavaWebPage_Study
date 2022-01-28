@@ -217,4 +217,31 @@ public class Udao {
 		
 		return alu;		
 	}
+	
+	public ArrayList<User> uList() throws ClassNotFoundException, SQLException{
+		DriverDB db = new DriverDB();
+		conn = db.driverDbcon();
+		ArrayList<User> alu = new ArrayList<>();
+
+		pstmt = conn.prepareStatement("SELECT * FROM tb_user");
+		rs = pstmt.executeQuery();
+		User u=null;
+
+		while(rs.next()) {
+			u=new User();
+			u.setU_id(rs.getString("u_id"));
+			u.setU_pw(rs.getString("u_pw"));
+			u.setU_level(rs.getString("u_level"));
+			u.setU_name(rs.getString("u_name"));
+			u.setU_phone(rs.getString("u_phone"));
+			u.setU_email(rs.getString("u_email"));
+			alu.add(u);
+		}
+		
+		rs.close();
+		pstmt.close();
+		conn.close();
+		
+		return alu;		
+	}
 }
