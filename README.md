@@ -3,6 +3,7 @@
 
 ***Do List🤔***
 - [ ] MVC model2 context.xml oracle -> mysql 수정하기
+- [ ] goods_search 카테고리 radio -> 색상 checkbox로 수정하기
 - [ ] form에 유효성 검사 추가하기
 - [x] goods Folder code 완성
 - [x] DAO,DTO 이용하기
