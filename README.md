@@ -37,17 +37,3 @@
 | `21/12/12` | get/post로 화면에 입력받아서 회원가입창 만들어보기 |
 | `21/12/11` | layout 나눠서 include 활용하기 |
 
-<br><br>
-
-***issue🤦‍♀️🤦‍♀️***
-> 현재 git 자체를 사용하지 않고 eclipse marketplace에 있는 egit을 다운받아 사용중인데
-220106 학원에서 commit,push 완료한 내역이 github에 적용이 안되는 것을 220107에 push까지 마친 상태에서 알게됨
-구글링 하던 중 학원 이클립스 워크스페이스의 Author와 Committer의 이메일을 잘못적었다는것을 알았지만
-검색결과가 모두 git과 terminal을 이용한 해결방안이라 everydaycommit은 xx.. 이라고 생각하고 있을 때
-github 사이트에서 해결...ㅎ
-원래 username <useremail@domain>인데 username <username@domain>으로 써서 생겼던 문제
-
-
-> 위의 commit 미반영 issue 때문에 아무것도 모르면서 git history 이것저것 만져보다가 revert를 하는 불상사 발생...
-reset으로 돌렸는데 push해서 github 저장소까지 수정하려고 하니 충돌 일어남
-branch명인 master(or main)앞에 +붙여주거나 force 체크박스 체크하고 push하면 해결
