@@ -1,4 +1,4 @@
-### 학원 수업 혼자 실습 해보기
+### MVC 패턴 model1 / model2
 <br>
 
 ***Do List🤔***
